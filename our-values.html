@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Full-Screen Auto Slider</title>
+<style>
+body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #000;
+    }
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+img.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.logo-toggle{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 40px;
+   
+}
+img.logo-main{
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+    cursor: pointer;
+     transition: all 0.2s ease-in-out;
+     background: #fff;
+     padding: 3px;
+}
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+.icon {
+    font-size: 34px;
+    color: #fff;
+    text-shadow: 0 5px 0px rgba(0,0,0,0.3);
+}
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    transition: right 0.3s ease-in-out;
+    z-index: 1;
+}
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.menu ul li {
+    margin: 20px 0;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 45px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    line-height: 58px;
+}
+section {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        color:white;
+        background-color: black;
+        visibility: hidden;
+        }
+        section.active {
+        visibility: visible;
+        }
+section h2 {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid;
+    width: fit-content;
+    font-size: 32px;
+    padding-bottom: 10px;
+}
+section p {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-top: 45px;
+    padding: 39px 237px;
+    font-size: 30px;
+}
+ul.pagination {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 60%;
+    /* margin: 0; */
+    padding: 0;
+}
+ul.pagination li {
+    list-style-type: none;
+    display: inline;
+    font-size: 21px;
+    letter-spacing: 5px;
+}
+ul.pagination li:first-child {
+    color: #bbb;
+}
+    .logo-toggle{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 40px;
+   
+}
+</style>
+</head>
+<body>
+    <input type="hidden" name="currentFunctionIndex_id" id="currentFunctionIndex_id" value="0">
+
+        <div class="logo-toggle">
+            <img src="images/metro-logo.png" width="100" height="100" alt="" class="logo-main">
+            <div class="toggle">
+                <div class="menu-toggle" id="menuToggle">
+                    <div class="icon" id="menuIcon">&#9776;</div>
+                    <div class="icon" style="display: none;" id="closeIcon">&#10006;</div>
+                </div>
+                <nav class="menu" id="menu">
+                    <!-- Your menu items go here -->
+                    <ul>
+                        <li><a href="">Brand Philosophy & Values</a></li>
+                        <li><a href="">Our Values</a></li>
+                        <li><a href="our-projects.html">Our Projects</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Brand Legacy</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+<section class="active">
+    <h2 style="">Mission </h2>
+    <p>To create opportunities in Odisha that cater to the employment, business, housing and hospitality needs. The potential that our people and diaspora carry is beyond imagination, and our mission is to pave a path for them to shine and gain the recognition they deserve.  </p>
+    <ul class="pagination">
+        <li>01</li>
+        <li>/02</li>
+    </ul>
+</section>
+<section class="vision">
+    <h2 style="">Vision </h2>
+    <p>To equip Odisha with world-class infrastructure starting from housing solutions to business centers. Metro Group has been synonymous with the development of Odisha since decades and with the ever changing scenario, we are headed towards a holistic growth that’s inclusive and is ready to welcome guests from all over the world.</p>
+    <ul class="pagination">
+        <li>02</li>
+        <li>/02</li>
+    </ul>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollToPlugin3.min.js"></script>
+    <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>      
+<script>
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+}
+
+function updateSlider() {
+    const translateX = -currentIndex * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+}
+
+setInterval(nextSlide, 6000); // Change slide every 3 seconds (adjust as needed)
+const menuToggle = document.getElementById('menuToggle');
+const menuIcon = document.getElementById('menuIcon');
+const closeIcon = document.getElementById('closeIcon');
+const menu = document.getElementById('menu');
+
+menuToggle.addEventListener('click', () => {
+    if (menu.style.right === '0px') {
+        //alert('if');
+        document.getElementById("currentFunctionIndex_id").value = 0;
+        menu.style.right = '-100%';
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+    } else {
+        //alert('else');
+        menu.style.right = '0px';
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+    }
+});
+const header = document.querySelector('header');
+let prevScrollPos = window.pageYOffset;
+
+window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+        // User is scrolling up; show the header
+        header.style.transform = 'translateY(0)';
+    } else {
+        // User is scrolling down; hide the header
+        header.style.transform = 'translateY(-100%)';
+    }
+
+    prevScrollPos = currentScrollPos;
+}); 
+      const sections = document.getElementsByTagName('section');
+const wrapIndex = gsap.utils.wrap(0, sections.length);
+let curIndex = 0;
+let timeout;
+let newScroll = true;
+let transition = gsap.to(sections[0], {autoAlpha: 1});
+document.addEventListener('wheel', changeSection)
+
+function changeSection(e){
+    let dir;
+    if(checkUp(e)){
+      dir = -1;
+      console.log(dir)
+    }
+    else{
+      dir = 1;
+      console.log(dir)
+    }
+    const newIndex = wrapIndex(curIndex + dir);
+  if(timeout) {
+    clearTimeout(timeout);
+  }
+  timeout = setTimeout(() => {
+    newScroll = true
+  }, 50);
+  
+  if(!newScroll)
+    return;
+  
+  // Don't fire while another transition is happening
+  if(!transition.isActive()) {
+    newScroll = false;
+    
+    transition = gsap.timeline({onComplete: () => {
+      // Update the index
+      curIndex = newIndex;
+    }});
+    // Fade out the old one
+    transition.to(sections[curIndex], {autoAlpha: 0});
+    
+    // Fade in the new one
+    transition.to(sections[newIndex], {autoAlpha: 1});
+  }
+}
+checkUp = (e) => {
+    if (e.wheelDelta) {
+      return e.wheelDelta > 0;
+    }
+    return e.deltaY < 0;
+  } 
+</script>
+</body>
+</html>

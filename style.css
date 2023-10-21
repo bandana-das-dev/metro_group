@@ -1,0 +1,13 @@
+ body {
+    width: 100%;
+    min-height: 100vh; /* Use viewport height for 100% height */
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Create 2 columns */
+    flex-wrap: wrap; /* Wrap to the next row when necessary */
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}

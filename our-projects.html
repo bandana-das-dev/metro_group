@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+      body {
+    width: 100%;
+    min-height: 100vh; /* Use viewport height for 100% height */
+    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Create 2 columns */
+    flex-wrap: wrap; /* Wrap to the next row when necessary */
+    overflow: hidden;
+    background-color: #000;
+}
+section {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        color:white;
+        background-color: black;
+        visibility: hidden;
+        }
+        section.active {
+        visibility: visible;
+        }
+section h2{
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+    width: fit-content;
+    }
+section p {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-top: 40px;
+    padding: 20px 237px;
+    }
+    </style>
+</head>
+<body>
+<style type="text/css">
+    /* Header */
+header {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     overflow: auto;
+}
+ .icon-1, .icon-2, .icon-3 {
+     position: absolute;
+     left: 25%;
+     top: 50%;
+     width: 32px;
+     height: 3px;
+     background-color: black;
+     transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+}
+ .icon-1 {
+     transform: translateY(-8px);
+     animation-delay: 100ms;
+}
+ .icon-3 {
+     transform: translateY(8px);
+     animation-delay: 250ms;
+}
+.logo {
+     position: absolute;
+    height: 107px;
+    width: 101px;
+    top: 10%;
+    left: 3%;
+    z-index: 1000;
+    cursor: pointer;
+    /* border-radius: 50%; */
+    transition: all 0.2s ease-in-out;
+    background: rgb(255 255 255);
+    padding: 2px;
+}
+ .hamburger-icon {
+     position: absolute;
+     height: 60px;
+     width: 60px;
+     top: 10%;
+     right: 3%;
+     z-index: 1000;
+     cursor: pointer;
+     border-radius: 50%;
+     transition: all 0.2s ease-in-out;
+     background:#fff;
+}
+ .hamburger-icon:hover {
+     transform: scale(1.2);
+     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+ .icon-1.a {
+     transform: rotate(40deg);
+}
+ .icon-3.b {
+     transform: rotate(-40deg);
+}
+ .icon-2.c {
+     opacity: 0;
+}
+ .clear {
+     clear: both;
+}
+ @keyframes slideIn {
+     0% {
+         width: 0%;
+         opacity: 0;
+    }
+     100% {
+         width: 50%;
+         opacity: 1;
+    }
+}
+ nav {
+     background: #0288d1;
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 0%;
+     z-index: 10;
+     opacity: 0;
+     transition: all 600ms cubic-bezier(0.62, 0.04, 0.3, 1.56);
+     transition-delay: 100ms;
+}
+ nav ul {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    right: 0;
+    padding: 0;
+    width: fit-content;
+}
+ nav ul li {
+    list-style: none;
+    font-size: 24px;
+    color: #fff;
+    line-height: 2.2;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    border-bottom: 1px solid;
+    text-align: center;
+}
+ nav.show {
+     width: 100%;
+     opacity: 1;
+}
+ @keyframes shotup {
+     0% {
+         transform: translateY(300%);
+         opacity: 0;
+    }
+     90% {
+         transform: translateY(-50px);
+    }
+     100% {
+         transform: translateY(0%);
+         opacity: 1;
+    }
+}
+/* Header */
+.colum {
+    width: 29.333%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 15px;
+    color: #000;
+    margin-right: 11px;
+    margin-left: 11px;
+}
+.colum img {
+    width: 50%;
+    height: 50%;
+}
+.colum h3 {
+    font-size: 28px;
+    color: #015aa1;
+}
+</style>
+<header>
+  <div class="logo"><img src="images/metro-logo.png" width="100" height="100"></div>
+  <div class="hamburger-icon" id="icon">
+    <div class="icon-1" id="a"></div>
+    <div class="icon-2" id="b"></div>
+    <div class="icon-3" id="c"></div>
+    <div class="clear"></div>
+  </div>
+  <nav id="nav">  
+    <ul>
+      <li><a href="">Brand Philosophy & Values</a></li>
+      <li><a href="">Our Values</a></li>
+      <li><a href="">Our Projects</a></li>
+      <li><a href="">About Us</a></li>
+      <li><a href="">Brand Legacy</a></li>
+      <li><a href="">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="active">
+  <div class="colum"><a href="flagship-project.html">
+      <img src="images/metro-logo.png" alt="" title="">
+      <h3>Flagship Projects</h3></a>
+  </div>
+  <div class="colum"><a href="infra-projects.html">
+      <img src="images/metro-logo.png" alt="" title="">
+      <h3>Infra Projects</h3></a>
+  </div>
+  <div class="colum"><a href="">
+      <img src="images/metro-logo.png" alt="" title="">
+      <h3>Major Endeavors </h3></a>
+  </div>
+  
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://assets.codepen.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollToPlugin3.min.js"></script>
+    <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>
+    <script src="main.js"></script>
+    <script type="text/javascript">    
+    const header = document.querySelector('header');
+let prevScrollPos = window.pageYOffset;
+
+window.addEventListener('scroll', () => {
+    const currentScrollPos = window.pageYOffset;
+
+    if (prevScrollPos > currentScrollPos) {
+        // User is scrolling up; show the header
+        header.style.transform = 'translateY(0)';
+    } else {
+        // User is scrolling down; hide the header
+        header.style.transform = 'translateY(-100%)';
+    }
+
+    prevScrollPos = currentScrollPos;
+}); 
+      const sections = document.getElementsByTagName('section');
+const wrapIndex = gsap.utils.wrap(0, sections.length);
+let curIndex = 0;
+let timeout;
+let newScroll = true;
+let transition = gsap.to(sections[0], {autoAlpha: 1});
+document.addEventListener('wheel', changeSection)
+
+function changeSection(e){
+    let dir;
+    if(checkUp(e)){
+      dir = -1;
+      console.log(dir)
+    }
+    else{
+      dir = 1;
+      console.log(dir)
+    }
+    const newIndex = wrapIndex(curIndex + dir);
+  if(timeout) {
+    clearTimeout(timeout);
+  }
+  timeout = setTimeout(() => {
+    newScroll = true
+  }, 50);
+  
+  if(!newScroll)
+    return;
+  
+  // Don't fire while another transition is happening
+  if(!transition.isActive()) {
+    newScroll = false;
+    
+    transition = gsap.timeline({onComplete: () => {
+      // Update the index
+      curIndex = newIndex;
+    }});
+    // Fade out the old one
+    transition.to(sections[curIndex], {autoAlpha: 0});
+    
+    // Fade in the new one
+    transition.to(sections[newIndex], {autoAlpha: 1});
+  }
+}
+checkUp = (e) => {
+    if (e.wheelDelta) {
+      return e.wheelDelta > 0;
+    }
+    return e.deltaY < 0;
+  } 
+    </script>
+    
+</body>
+</html>
